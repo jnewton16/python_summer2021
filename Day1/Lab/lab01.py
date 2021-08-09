@@ -5,12 +5,17 @@
 # https://www.romannumerals.org/converter
 
 
-def binarify(num): 
+def binarify(num, base): 
   """convert positive integer to base 2"""
   if num<=0: return '0'
   digits = []
-  return ''.join(digits)
+  while num > 0:
+      digits.append(num % base)
+      num //= base
+  digits = digits[::-1]
+  return ''.join(str(i) for i in digits)
 
+binarify(29,3)
 def int_to_base(num, base):
   """convert positive integer to a string in any base"""
   if num<=0:  return '0' 
@@ -38,6 +43,7 @@ def romanify(num):
   result = ""
   return result
 
+#test different
 
 # Copyright (c) 2014 Matt Dickenson
 # 
